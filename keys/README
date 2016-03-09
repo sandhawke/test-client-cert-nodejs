@@ -1,0 +1,23 @@
+For testing, we have a few well known accounts whose "private" keys
+are made public here.  Well, one for now.
+
+To create one of these key files using Firefox:
+   Go to the Edit menu
+   -> Preferences
+   -> Advanced
+   -> select Certificates tab
+   -> View Certificates
+   -> select Your Certificates tab
+   Make the "Certificate Name" column wider if you have to
+   Select the one you want to export
+   Click [Backup...]
+   Pick a filename, eg ~/keys/bobdemo.databox.me
+   For "Certificate backup password", type x,
+   For "Certificate backup password (again)", type x,
+   This should enable to "ok" button; no go back and remove the x's,
+   Click [OK]
+   This should have created ~/keys/bobdemo.databox.me.p12
+
+Then convert the p12 file to a pem file like:
+     
+   openssl pkcs12 -in bobdemo.databox.me.p12 -out bobdemo.databox.me.pem -clcerts -nodes -passin pass:
